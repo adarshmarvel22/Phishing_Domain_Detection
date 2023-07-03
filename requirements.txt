@@ -1,0 +1,23 @@
+dvc
+numpy
+pandas
+scikit-learn
+notebook
+matplotlib
+seaborn
+python-box==6.0.2
+pyYAML
+tqdm
+whois
+ensure==1.0.2
+joblib
+types-PyYAML
+mlflow==1.26.1
+ipykernel
+xgboost
+imbalanced-learn
+scikit-learn
+xgboost
+evidently
+googlesearch_python==1.0.1
+-e .
