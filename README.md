@@ -11,7 +11,7 @@ The mail goal is to predict whether the domains are real or malicious.
 💿 Installing
 1. Environment setup.
 ```
-conda create --prefix venv python==3.8 -y
+conda create --prefix venv python==3.9.13 -y
 ```
 ```
 conda activate venv/
