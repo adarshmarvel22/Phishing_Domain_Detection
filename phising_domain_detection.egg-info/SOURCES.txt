@@ -1,0 +1,7 @@
+README.md
+setup.py
+phising_domain_detection.egg-info/PKG-INFO
+phising_domain_detection.egg-info/SOURCES.txt
+phising_domain_detection.egg-info/dependency_links.txt
+phising_domain_detection.egg-info/top_level.txt
+src/__init__.py

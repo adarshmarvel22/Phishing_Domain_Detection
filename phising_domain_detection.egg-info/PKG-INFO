@@ -1,0 +1,6 @@
+Metadata-Version: 2.1
+Name: phising-domain-detection
+Version: 0.0.1
+Summary: A python package for phising domain detection
+Author: adarsh
+Author-email: adarshmarvel22@gmail.com
