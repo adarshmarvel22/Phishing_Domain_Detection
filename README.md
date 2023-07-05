@@ -39,7 +39,7 @@ Authors
 Adarsh Maurya: adarshmsd1@gmail.com
 ```
 ```
-Sachi Sharma: sharmasachin95880@gmail.com
+Sachin Sharma: sharmasachin95880@gmail.com
 ```
 ```
 Akash Kumar: akasr1603@gmail.com
