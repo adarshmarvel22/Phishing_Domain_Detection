@@ -30,4 +30,17 @@ python app.py
 - Python 3.9.13
 - Machine learning
 - Scikit learn
-- 🏦 Industrial Use Cases
+- 🏦 Industrial Use 
+
+```bash
+Authors
+```
+```
+Adarsh Maurya: adarshmsd1@gmail.com
+```
+```
+Sachi Sharma: sharmasachin95880@gmail.com
+```
+```
+Akash Kumar: akasr1603@gmail.com
+```
