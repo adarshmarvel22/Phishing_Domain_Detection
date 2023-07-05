@@ -1,77 +1,45 @@
 import sys
-import os
-import pandas as pd
-import numpy as np
-from sklearn.model_selection import train_test_split
+from dataclasses import dataclass
 
+import numpy as np
+import pandas as pd
+from sklearn.compose import ColumnTransformer
+from imblearn.combine import SMOTETomek
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import RobustScaler, FunctionTransformer
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import  StandardScaler
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
-from src.constant import *
 from src.exception import CustomException
 from src.logger import logging
-from src.utils.main_utils import MainUtils
-from dataclasses import dataclass
+from src.utils import save_object
+import os
+
 
 @dataclass
 class DataTransformationConfig:
-    artifact_dir=os.path.join(artifact_folder)
-    transformed_train_file_path=os.path.join(artifact_dir, 'train.npy')
-    transformed_test_file_path=os.path.join(artifact_dir, 'test.npy') 
-    transformed_object_file_path=os.path.join( artifact_dir, 'preprocessor.pkl' )
-
-
-
-
+    preprocessor_obj_file_path = os.path.join("artifacts", "preprocessor.pkl")
 
 
 class DataTransformation:
-    def __init__(self,
-                 feature_store_file_path):
-       
-        self.feature_store_file_path = feature_store_file_path
-
+    def __init__(self):
         self.data_transformation_config = DataTransformationConfig()
 
-
-        self.utils =  MainUtils()
-        
-    
-    
-    @staticmethod
-    def get_data(feature_store_file_path:str) -> pd.DataFrame:
-        """
-        Method Name :   get_data
-        Description :   This method reads all the validated raw data from the feature_store_file_path and returns a pandas DataFrame containing the merged data. 
-        
-        Output      :   a pandas DataFrame containing the merged data 
-        On Failure  :   Write an exception log and then raise an exception
-        
-        Version     :   1.2
-        Revisions   :   moved setup to cloud
-        """
-        try:
-            data = pd.read_csv(feature_store_file_path)
-            data.rename(columns={"Good/Bad": TARGET_COLUMN}, inplace=True)
-
-
-            return data
-        
-        except Exception as e:
-            raise CustomException(e,sys)
-        
     def get_data_transformer_object(self):
         try:
             
+            # define custom function to replace 'NA' with np.nan
+            replace_na_with_nan = lambda X: np.where(X == 'na', np.nan, X)
 
             # define the steps for the preprocessor pipeline
+            nan_replacement_step = ('nan_replacement', FunctionTransformer(replace_na_with_nan))
             imputer_step = ('imputer', SimpleImputer(strategy='constant', fill_value=0))
             scaler_step = ('scaler', RobustScaler())
 
             preprocessor = Pipeline(
                 steps=[
+                nan_replacement_step,
                 imputer_step,
                 scaler_step
                 ]
@@ -81,56 +49,54 @@ class DataTransformation:
 
         except Exception as e:
             raise CustomException(e, sys)
-        
 
-             
-    def initiate_data_transformation(self) :
-        """
-            Method Name :   initiate_data_transformation
-            Description :   This method initiates the data transformation component for the pipeline 
-            
-            Output      :   data transformation artifact is created and returned 
-            On Failure  :   Write an exception log and then raise an exception
-            
-            Version     :   1.2
-            Revisions   :   moved setup to cloud
-        """
 
-        logging.info(
-            "Entered initiate_data_transformation method of Data_Transformation class"
-        )
 
+    def initiate_data_transformation(self, train_path, test_path):
         try:
-            dataframe = self.get_data(feature_store_file_path=self.feature_store_file_path)
-           
-            
-            
-            X = dataframe.drop(columns= TARGET_COLUMN)
-            y = np.where(dataframe[TARGET_COLUMN]==-1,0, 1)  #replacing the -1 with 0 for model training
-            
-            
-            X_train, X_test, y_train, y_test = train_test_split(X,y, test_size = 0.2 )
+            train_df = pd.read_csv(train_path)
 
-
-
+            test_df = pd.read_csv(test_path)
+ 
             preprocessor = self.get_data_transformer_object()
 
-            X_train_scaled =  preprocessor.fit_transform(X_train)
-            X_test_scaled  =  preprocessor.transform(X_test)
+            target_column_name = "class"
+            target_column_mapping = {'+1': 0, '-1': 1}
 
+            #training dataframe
+            input_feature_train_df = train_df.drop(columns=[target_column_name], axis=1)
+            target_feature_train_df = train_df[target_column_name].map(target_column_mapping)
+
+            #testing dataframe
+            input_feature_test_df = test_df.drop(columns=[target_column_name], axis=1)
+            target_feature_test_df = test_df[target_column_name].map(target_column_mapping)
+
+            transformed_input_train_feature = preprocessor.fit_transform(input_feature_train_df)
+
+            transformed_input_test_feature =preprocessor.transform(input_feature_test_df)
+
+            smt = SMOTETomek(sampling_strategy="minority")
             
 
+            input_feature_train_final, target_feature_train_final = smt.fit_resample(
+                transformed_input_train_feature, target_feature_train_df
+            )
 
-            preprocessor_path = self.data_transformation_config.transformed_object_file_path
-            os.makedirs(os.path.dirname(preprocessor_path), exist_ok= True)
-            self.utils.save_object( file_path= preprocessor_path,
+            input_feature_test_final, target_feature_test_final = smt.fit_resample(
+                transformed_input_test_feature, target_feature_test_df
+            )
+
+            train_arr = np.c_[input_feature_train_final, np.array(target_feature_train_final) ]
+            test_arr = np.c_[ input_feature_test_final, np.array(target_feature_test_final) ]
+
+            save_object(self.data_transformation_config.preprocessor_obj_file_path,
                         obj= preprocessor)
 
-            train_arr = np.c_[X_train_scaled, np.array(y_train) ]
-            test_arr = np.c_[ X_test_scaled, np.array(y_test) ]
-
-            return (train_arr, test_arr, preprocessor_path)
-        
+            return (
+                train_arr,
+                test_arr,
+                self.data_transformation_config.preprocessor_obj_file_path,
+            )
 
         except Exception as e:
-            raise CustomException(e, sys) from e
+            raise CustomException(e, sys)
