@@ -28,7 +28,7 @@ class DataTransformation:
 
     def get_data_transformer_object(self):
         try:
-            
+
             # define custom function to replace 'NA' with np.nan
             replace_na_with_nan = lambda X: np.where(X == 'na', np.nan, X)
 
@@ -39,9 +39,9 @@ class DataTransformation:
 
             preprocessor = Pipeline(
                 steps=[
-                nan_replacement_step,
-                imputer_step,
-                scaler_step
+                    nan_replacement_step,
+                    imputer_step,
+                    scaler_step
                 ]
             )
             
@@ -51,32 +51,36 @@ class DataTransformation:
             raise CustomException(e, sys)
 
 
-
+    
     def initiate_data_transformation(self, train_path, test_path):
         try:
+
+            # Read the training and testing dataframes
             train_df = pd.read_csv(train_path)
 
             test_df = pd.read_csv(test_path)
  
+            # Get the data transformer object
             preprocessor = self.get_data_transformer_object()
 
+            # Define the target column name and mapping
             target_column_name = "class"
             target_column_mapping = {'+1': 0, '-1': 1}
 
-            #training dataframe
+            # Separate input and target features for training dataframe
             input_feature_train_df = train_df.drop(columns=[target_column_name], axis=1)
             target_feature_train_df = train_df[target_column_name].map(target_column_mapping)
 
-            #testing dataframe
+            # Separate input and target features for testing dataframe
             input_feature_test_df = test_df.drop(columns=[target_column_name], axis=1)
             target_feature_test_df = test_df[target_column_name].map(target_column_mapping)
 
+            # Transform input features using the preprocessor
             transformed_input_train_feature = preprocessor.fit_transform(input_feature_train_df)
-
-            transformed_input_test_feature =preprocessor.transform(input_feature_test_df)
-
-            smt = SMOTETomek(sampling_strategy="minority")
+            transformed_input_test_feature = preprocessor.transform(input_feature_test_df)
+            # Perform SMOTETomek oversampling and 
             
+            smt = SMOTETomek(sampling_strategy="minority")
 
             input_feature_train_final, target_feature_train_final = smt.fit_resample(
                 transformed_input_train_feature, target_feature_train_df
@@ -86,11 +90,12 @@ class DataTransformation:
                 transformed_input_test_feature, target_feature_test_df
             )
 
-            train_arr = np.c_[input_feature_train_final, np.array(target_feature_train_final) ]
-            test_arr = np.c_[ input_feature_test_final, np.array(target_feature_test_final) ]
+            # Combine input features and target features into arrays
+            train_arr = np.c_[input_feature_train_final, np.array(target_feature_train_final)]
+            test_arr = np.c_[input_feature_test_final, np.array(target_feature_test_final)]
 
-            save_object(self.data_transformation_config.preprocessor_obj_file_path,
-                        obj= preprocessor)
+            # Save the preprocessor object
+            save_object(self.data_transformation_config.preprocessor_obj_file_path, obj=preprocessor)
 
             return (
                 train_arr,
