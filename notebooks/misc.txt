@@ -1,0 +1,35 @@
+            # code to extract data from mongodb and saving
+
+            # Export collection from a MongoDB database as a DataFrame
+            df: pd.DataFrame = export_collection_as_dataframe(
+                db_name=MONGO_DATABASE_NAME, collection_name=MONGO_COLLECTION_NAME
+            )
+
+            logging.info("Exported collection as dataframe")
+
+            # Create directories if they don't exist for the file paths
+            os.makedirs(
+                os.path.dirname(self.ingestion_config.train_data_path), exist_ok=True
+            )
+
+            # Save the raw data DataFrame to a CSV file
+            df.to_csv(self.ingestion_config.raw_data_path, index=False, header=True)
+
+folder structure:   
+
+Project_name
+    │
+    ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
+    ├── src                <- Source code for use in this project.
+    │   ├── __init__.py    <- Makes src a Python module
+    │   ├──utils.py
+    │   ├── data           <- Scripts to download or generate data
+    │   │   └── make_dataset.py
+    │   │
+    │   ├── features       <- Scripts to turn raw data into features for modeling
+    │   │   └── build_features.py
+    │   │
+    │   ├── models         <- Scripts to train models and then use trained models to make
+    │   │   │                 predictions
+    │   │   ├── predict_model.py
+    │   │   └── train_model.py
