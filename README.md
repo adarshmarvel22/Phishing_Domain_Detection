@@ -1,3 +1,15 @@
+# README
+
+This repository contains code for a project that analyzes the features of URLs and domains. The project is designed to help identify malicious URLs and domains.
+
+## Features
+
+The project includes the following features:
+
+* Identification of malicious URLs and domains
+* Analysis of the features of URLs and domains
+* Visualization of the results of the analysis
+
 # 📄✏ Problem Statement:
 **Brief:** Phishing is a type of fraud in which an attacker impersonates a reputable company or 
 person in order to get sensitive information such as login credentials or account 
@@ -7,6 +19,13 @@ to be authentic than it is to break through a computer's protection measures.
 The mail goal is to predict whether the domains are real or malicious.
 
 #### 
+
+## Usage
+
+To use the project, you can follow these steps:
+
+1. Clone the repository to your local machine.
+2. Install the dependencies by running the following command:
 
 💿 Installing
 1. Environment setup.
@@ -47,3 +66,20 @@ Sachin Sharma: sharmasachin95880@gmail.com
 ```
 Akash Kumar: akasr1603@gmail.com
 ```
+
+
+## Results
+
+The project will output a visualization of the results of the analysis. The visualization will show the distribution of the features of the URLs and domains.
+The version 0.0.1 (branch adarsh has an accuracy of 96.88% in predicting malicious domains)
+
+## Contributors
+
+This project was created by Adarsh Maurya, Sachin Sharma, Akash Kumar
+
+## Purpose
+
+This project is built as an industrial and real world experience under the ineuron.ai internship.
+
+
+I hope this is impressive! Let me know if you have any other questions.
