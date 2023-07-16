@@ -1,3 +1,6 @@
+import os
+import sys
+
 from flask import Flask, render_template, request, redirect
 import numpy as np
 import warnings
@@ -5,7 +8,8 @@ import pickle
 warnings.filterwarnings('ignore')
 from feature import FeatureExtraction
 
-file = open("./model.pkl","rb")
+model_path=os.path.join('server','model.pkl')
+file = open(model_path,"rb")
 model = pickle.load(file)
 file.close()
 
@@ -21,7 +25,7 @@ def index():
 
         url = request.form["input"]
         obj = FeatureExtraction(url)
-        x = np.array(obj.getFeaturesList()).reshape(1,30) 
+        x = np.array(obj.getFeaturesList()).reshape(1,69) 
 
         y_pred =model.predict(x)[0]
 
@@ -38,9 +42,9 @@ def index():
         return render_template('index.html',result = result)
     return render_template("index.html")
 
-#@app.route('/report')
-#def report():
-#    return render_template('index.html')
+@app.route('/report')
+def report():
+   return render_template('index.html')
 
 @app.route('/data')
 def data():

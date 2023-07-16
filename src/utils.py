@@ -6,7 +6,7 @@ import pandas as pd
 from src.exception import CustomException
 from src.logger import logging
 
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
 def save_object(file_path, obj):
     try:
@@ -28,16 +28,24 @@ def evaluate_model(X_train,y_train,X_test,y_test,models):
             # Train model
             model.fit(X_train,y_train)
 
-            
-
             # Predict Testing data
             y_test_pred =model.predict(X_test)
 
-            # Get R2 scores for train and test data
-            #train_model_score = r2_score(ytrain,y_train_pred)
+            # Get scores for train and test data
             test_model_score = accuracy_score(y_test,y_test_pred)
 
-            report[list(models.keys())[i]] =  test_model_score
+            report[list(models.keys())[i]] = {
+                "accuracy": test_model_score,
+                "precision": precision_score(y_test, y_test_pred),
+                "recall": recall_score(y_test, y_test_pred),
+                "f1_score": f1_score(y_test, y_test_pred),
+            }
+
+            # # Save the report to a text file
+            # report_path=os.path.join('server','report.txt')
+            # with open(report_path, "w") as f:
+            #     f.write(str(report))
+
 
         return report
     
