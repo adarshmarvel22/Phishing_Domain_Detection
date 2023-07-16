@@ -69,7 +69,7 @@ Akash Kumar: akasr1603@gmail.com
 
 ## data
 The dataset is taken from Mendeley Data: https://data.mendeley.com/datasets/72ptz43s9v/1
-Out of a total 111 features, 69 important features were used to train the model
+Out of a total 111 features, 69 important features were used to train the model.
 
 
 ## Results

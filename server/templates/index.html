@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phishing Detector</title>
+
+
+    <!--CSS and Bootstrap CDN-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link href="../static/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+
+
+
+    <!--Home section-->
+    <section id="home" class="home-section">
+      <div class="container">
+        <h1 class="title-text">Phishing Domain Detection</h1>
+        <form method="post" action="/predict" class="search-box">
+          <input
+            id="txt_1"
+            class="search"
+            type="url"
+            name="input"
+            placeholder="Enter the URL : https://www.example.com/"
+            required
+            onkeyup="saveValue(this);"
+          />
+          <input class="button" type="submit" value="Check" />
+        </form>
+        <p class="result">{{result}}</p>
+      </div>
+    </section>
+  
+    <script type="text/javascript">
+      document.getElementById("txt_1").value = getSavedValue("txt_1"); // set the value to this input
+      /* Here you can add more inputs to set value. if it's saved */
+
+      //Save the value function - save it to localStorage as (ID, VALUE)
+      function saveValue(e) {
+        var id = e.id; // get the sender's id to save it .
+        var val = e.value; // get the value.
+        localStorage.setItem(id, val); // Every time user writing something, the localStorage's value will override .
+      }
+
+      //get the saved value function - return the value of "v" from localStorage.
+      function getSavedValue(v) {
+        if (!localStorage.getItem(v)) {
+          return ""; // You can change this to your defualt value.
+        }
+        return localStorage.getItem(v);
+      }
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
