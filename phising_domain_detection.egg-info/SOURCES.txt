@@ -8,6 +8,7 @@ phising_domain_detection.egg-info/top_level.txt
 src/__init__.py
 src/exception.py
 src/logger.py
+src/utils.py
 src/components/__init__.py
 src/components/data_ingestion.py
 src/components/data_transformation.py
@@ -18,5 +19,3 @@ src/constant/__init__.py
 src/pipeline/__init__.py
 src/pipeline/predict_pipeline.py
 src/pipeline/train_pipeline.py
-src/utils/__init__.py
-src/utils/main_utils.py
