@@ -8,14 +8,14 @@ import pickle
 warnings.filterwarnings('ignore')
 from feature import FeatureExtraction
 
-print("model load start")
+# print("model load start")
 
 model_path=os.path.join('server','model.pkl')
 file = open(model_path,"rb")
 model = pickle.load(file)
 file.close()
 
-print("model load end")
+# print("model load end")
 
 app = Flask(__name__)
 

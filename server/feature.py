@@ -183,44 +183,30 @@ class FeatureExtraction:
         directory = FeatureExtraction.__extract_directory(url)
         file = FeatureExtraction.__extract_file(url)
         parameters = FeatureExtraction.__extract_parameters(url)
-        
-        
         directory_length = FeatureExtraction.__extract_directory_length(directory)
         time_domain_activation = FeatureExtraction.__extract_time_domain_activation(url)
         length_url = FeatureExtraction.__extract_length_url(url)
         file_length = FeatureExtraction.__extract_file_length(file)
         qty_slash_url = FeatureExtraction.__extract_qty_slash_url(url)
         qty_plus_directory = FeatureExtraction.__extract_qty_plus_directory(directory)
-        
         domain_length = len(domain)
         qty_vowels_domain = FeatureExtraction.__extract_qty_vowels_domain(domain)
         qty_asterisk_directory = FeatureExtraction.__extract_qty_asterik_directory(directory)
         qty_hyphen_directory = FeatureExtraction.__extract_qty_hyphen_directory(directory)
-        
         qty_dot_domain = domain.count(".")
         qty_underline_directory = FeatureExtraction.__extract_qty_underline_directory(directory)
         qty_percent_directory = FeatureExtraction.__extract_qty_percent_directory(directory)
-        
         qty_dot_url = url.count(".")
         qty_hyphen_url = url.count("-")
         qty_hyphen_file = FeatureExtraction.__extract_qty_hyphen_file(file)
-        
-        
         qty_hyphen_domain = domain.count("-")
         qty_params_length = FeatureExtraction.__extract_params_length(parameters)
-        
         qty_underline_url = url.count("_")
         qty_tld_url = FeatureExtraction.__extract_qty_tld_url(domain)
-        
         qty_plus_params = FeatureExtraction.__extract_qty_plus_params(parameters)
-        
-        
         qty_percent_url = url.count("%")
-        
-        
         qty_equal_params = FeatureExtraction.__extract_qty_equal_params(parameters)
         qty_dot_params = FeatureExtraction.__extract_qty_dot_params(parameters)
-        
         qty_percent_params = FeatureExtraction.__extract_qty_percent_params(parameters)
         qty_underline_params = FeatureExtraction.__extract_qty_underline_params(parameters)
 
