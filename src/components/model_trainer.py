@@ -50,18 +50,22 @@ class ModelTrainer:
             logging.info(f'Model Report : {model_report}')
 
             # To get best model score from dictionary 
-            best_model_score = max(sorted(model_report.values()))
+            best_model_name = None
+            best_model_score = 0
 
-            best_model_name = list(model_report.keys())[
-                list(model_report.values()).index(best_model_score)
-            ]
-            
-            best_model = models[best_model_name]
+            for model_name, model_scores in model_report.items():
+                if model_scores["accuracy"] > best_model_score:
+                    best_model_name = model_name
+                    best_model_score = model_scores["accuracy"]
 
-            print(f'Best Model Found , Model Name : {best_model_name} , Accuracy Score : {best_model_score}')
-            print('\n====================================================================================\n')
+            print('\n==================================\n')
+            print(f"Best model name: {best_model_name}")
+            print(f"Best model score: {best_model_score}")
+            print('\n==================================\n')
             logging.info(f'Best Model Found , Model Name : {best_model_name} , Accuracy Score : {best_model_score}')
 
+            best_model = models[best_model_name]
+            
             save_object(
                  file_path=self.model_trainer_config.trained_model_file_path,
                  obj=best_model

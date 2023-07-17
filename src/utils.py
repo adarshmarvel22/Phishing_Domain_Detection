@@ -41,11 +41,6 @@ def evaluate_model(X_train,y_train,X_test,y_test,models):
                 "f1_score": f1_score(y_test, y_test_pred),
             }
 
-            # # Save the report to a text file
-            # report_path=os.path.join('server','report.txt')
-            # with open(report_path, "w") as f:
-            #     f.write(str(report))
-
 
         return report
     
