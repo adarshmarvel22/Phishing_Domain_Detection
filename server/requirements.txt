@@ -10,3 +10,9 @@ imbalanced-learn
 googlesearch_python==1.0.1
 ipaddress
 bs4
+
+sklearn
+python-whois
+matplotlib
+seaborn
+xgboost

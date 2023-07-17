@@ -8,10 +8,14 @@ import pickle
 warnings.filterwarnings('ignore')
 from feature import FeatureExtraction
 
+print("model load start")
+
 model_path=os.path.join('server','model.pkl')
 file = open(model_path,"rb")
 model = pickle.load(file)
 file.close()
+
+print("model load end")
 
 app = Flask(__name__)
 
@@ -24,8 +28,10 @@ def index():
     if request.method == "POST":
 
         url = request.form["input"]
-        obj = FeatureExtraction(url)
-        x = np.array(obj.getFeaturesList()).reshape(1,69) 
+        obj = FeatureExtraction()
+        obj.generate_dataframe_from_url(url)
+
+        x = np.array(obj.getFeaturesList()).reshape(1,25) 
 
         y_pred =model.predict(x)[0]
 
