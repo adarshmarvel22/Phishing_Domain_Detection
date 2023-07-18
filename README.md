@@ -20,6 +20,48 @@ The mail goal is to predict whether the domains are real or malicious.
 
 #### 
 
+## Project folder Structure
+```
+Phishing_Domain_Detection 
+├───artifacts
+├───build
+│   └───lib
+│       └───src
+│           ├───components
+│           ├───configuration
+│           ├───constant
+│           └───pipeline
+├───dist
+├───logs
+├───notebooks
+│   └───data
+├───phising_domain_detection.egg-info
+├───server
+│   ├───static
+│   └───templates
+|   └───App.py
+|   └───feature.py
+├───src
+│   ├───components
+│   │       └───data ingestion.py
+|   |       └───data transofrmation,py
+|   |       └───model trainer.py
+│   ├───configuration
+|   |         └───Momgodb_connecntion.py 
+│   ├───constant
+│   │   └───__pycache__
+│   ├───pipeline
+|   |        └───__init__.py
+|   |        └───Predict Pipeline.py
+|   |        └───train_pipeline.py
+│   └───__pycache__
+└───upload_to_db
+└───requirements.txt
+└───setup.py
+└───setup.cfg
+
+```
+
 ## Usage
 
 To use the project, you can follow these steps:
