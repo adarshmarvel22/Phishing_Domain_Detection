@@ -1,117 +1,77 @@
-import os
-import sys
-from dataclasses import dataclass
-
-from sklearn.ensemble import (
-    AdaBoostClassifier,
-    GradientBoostingClassifier,
-    RandomForestClassifier,
-)
-from sklearn.metrics import r2_score
-from sklearn.neighbors import KNeighborsClassifier
+# Basic Import
+import numpy as np
+import pandas as pd
+from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
-from xgboost import XGBClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.svm import SVC
+from sklearn.ensemble import AdaBoostClassifier
 
-from src.constant import *
 from src.exception import CustomException
 from src.logger import logging
-from src.utils import evaluate_models, load_object, save_object, upload_file
 
+from src.utils import save_object
+from src.utils import evaluate_model
 
-@dataclass
+from dataclasses import dataclass
+import sys
+import os
+
+@dataclass 
 class ModelTrainerConfig:
-    trained_model_file_path = os.path.join("artifacts", "model.pkl")
-
-
-class CustomModel:
-    def __init__(self, preprocessing_object, trained_model_object):
-        self.preprocessing_object = preprocessing_object
-
-        self.trained_model_object = trained_model_object
-
-    def predict(self, X):
-        transformed_feature = self.preprocessing_object.transform(X)
-
-        return self.trained_model_object.predict(transformed_feature)
-
-    def __repr__(self):
-        return f"{type(self.trained_model_object).__name__}()"
-
-    def __str__(self):
-        return f"{type(self.trained_model_object).__name__}()"
+    trained_model_file_path = os.path.join('artifacts','model.pkl')
 
 
 class ModelTrainer:
     def __init__(self):
         self.model_trainer_config = ModelTrainerConfig()
 
-    def initiate_model_trainer(self, train_array, test_array, preprocessor_path):
+    def initate_model_training(self,train_array,test_array):
         try:
-            logging.info(f"Splitting training and testing input and target feature")
-
-            x_train, y_train, x_test, y_test = (
-                train_array[:, :-1],
-                train_array[:, -1],
-                test_array[:, :-1],
-                test_array[:, -1],
+            logging.info('Splitting Dependent and Independent variables from train and test data')
+            X_train, y_train, X_test, y_test = (
+                train_array[:,:-1],
+                train_array[:,-1],
+                test_array[:,:-1],
+                test_array[:,-1]
             )
 
-            models = {
-                "Random Forest": RandomForestClassifier(),
-                "Decision Tree": DecisionTreeClassifier(),
-                "Gradient Boosting": GradientBoostingClassifier(),
-                "K-Neighbors Classifier": KNeighborsClassifier(),
-                "XGBClassifier": XGBClassifier(),
-                "AdaBoost Classifier": AdaBoostClassifier(),
-            }
+            models={
+            'LogisticRegression':LogisticRegression(),
+            'DecisionTreeClassifier':DecisionTreeClassifier(),
+            'RandomForestClassifier':RandomForestClassifier(),
+            'SVC':SVC(),
+            'AdaBoostClassifier':AdaBoostClassifier()
+        }
+            
+            model_report:dict=evaluate_model(X_train,y_train,X_test,y_test,models)
+            print(model_report)
+            print('\n====================================================================================\n')
+            logging.info(f'Model Report : {model_report}')
 
-            logging.info(f"Extracting model config file path")
+            # To get best model score from dictionary 
+            best_model_name = None
+            best_model_score = 0
 
-            model_report: dict = evaluate_models(X=x_train, y=y_train, models=models)
+            for model_name, model_scores in model_report.items():
+                if model_scores["accuracy"] > best_model_score:
+                    best_model_name = model_name
+                    best_model_score = model_scores["accuracy"]
 
-            ## To get best model score from dict
-            best_model_score = max(sorted(model_report.values()))
-
-            ## To get best model name from dict
-
-            best_model_name = list(model_report.keys())[
-                list(model_report.values()).index(best_model_score)
-            ]
+            print('\n==================================\n')
+            print(f"Best model name: {best_model_name}")
+            print(f"Best model score: {best_model_score}")
+            print('\n==================================\n')
+            logging.info(f'Best Model Found , Model Name : {best_model_name} , Accuracy Score : {best_model_score}')
 
             best_model = models[best_model_name]
-
-            if best_model_score < 0.6:
-                raise Exception("No best model found")
-
-            logging.info(f"Best found model on both training and testing dataset")
-
-            preprocessing_obj = load_object(file_path=preprocessor_path)
-
-            custom_model = CustomModel(
-                preprocessing_object=preprocessing_obj,
-                trained_model_object=best_model,
-            )
-
-            logging.info(
-                f"Saving model at path: {self.model_trainer_config.trained_model_file_path}"
-            )
-
+            
             save_object(
-                file_path=self.model_trainer_config.trained_model_file_path,
-                obj=custom_model,
+                 file_path=self.model_trainer_config.trained_model_file_path,
+                 obj=best_model
             )
-
-            predicted = best_model.predict(x_test)
-
-            r2_square = r2_score(y_test, predicted)
-
-            upload_file(
-                from_filename=self.model_trainer_config.trained_model_file_path,
-                to_filename="model.pkl",
-                bucket_name=AWS_S3_BUCKET_NAME,
-            )
-
-            return r2_square
+          
 
         except Exception as e:
-            raise CustomException(e, sys)
+            logging.info('Exception occured at Model Training')
+            raise CustomException(e,sys)

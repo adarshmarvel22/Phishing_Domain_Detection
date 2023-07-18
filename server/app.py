@@ -4,13 +4,15 @@ import sys
 from flask import Flask, render_template, request, redirect
 import numpy as np
 import warnings
-import pickle
+import pickle 
+from src.utils import load_object
+
 warnings.filterwarnings('ignore')
 from feature import FeatureExtraction
 
 # print("model load start")
 
-model_path=os.path.join('server','model.pkl')
+model_path=os.path.join('artifacts','model.pkl')
 file = open(model_path,"rb")
 model = pickle.load(file)
 file.close()
