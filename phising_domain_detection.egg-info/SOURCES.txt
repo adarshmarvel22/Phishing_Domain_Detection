@@ -13,9 +13,11 @@ src/components/__init__.py
 src/components/data_ingestion.py
 src/components/data_transformation.py
 src/components/model_trainer.py
+src/components/tempCodeRunnerFile.py
 src/configuration/__init__.py
 src/configuration/mongodb_connection.py
 src/constant/__init__.py
 src/pipeline/__init__.py
 src/pipeline/predict_pipeline.py
+src/pipeline/tempCodeRunnerFile.py
 src/pipeline/train_pipeline.py
