@@ -1,4 +1,4 @@
-# <center> Phishing Domain Detection
+<h1 align="center">Phishing Domain Detection</h1>
 
 This repository contains code for a project that analyzes the features of URLs and domains and predicts whether they are safe or malicious. The project aims to identify and detect malicious URLs and domains commonly associated with phishing attacks.
 
