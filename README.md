@@ -1,6 +1,6 @@
 # README
 
-This repository contains code for a project that analyzes the features of URLs and domains. The project is designed to help identify malicious URLs and domains.
+This repository contains code for a project that analyzes the features of URLs and domains and predcts whether it is safe or malicious (by percentage). The project is designed to help identify malicious URLs and domains.
 
 ## Features
 
@@ -67,9 +67,9 @@ Sachin Sharma: sharmasachin95880@gmail.com
 Akash Kumar: akasr1603@gmail.com
 ```
 
-## data
+## Data
 The dataset is taken from Mendeley Data: https://data.mendeley.com/datasets/72ptz43s9v/1
-Out of a total 111 features, 69 important features were used to train the model
+Out of a total 111 features, 25 most important features were used to train the model.
 
 
 ## Results
@@ -86,4 +86,8 @@ This project was created by Adarsh Maurya, Sachin Sharma, Akash Kumar
 This project is built as an industrial and real world experience under the ineuron.ai internship.
 
 
-I hope this is impressive! Let me know if you have any other questions.
+I hope this helps! Let us know if you have any other questions.
+Contact us at
+- [adarshmsd1@gmail.com](mailto:adarshmsd1@gmail.com)
+- [sharmasachin95880@gmail.com](mailto:sharmasachin95880@gmail.com)
+- [akasr1603@gmail.com](mailto:akasr1603@gmail.com)
