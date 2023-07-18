@@ -1,0 +1,41 @@
+artifacts_root: artifacts
+sorce_file_path: src 
+
+data_ingestion:
+  root_dir: artifacts/data_ingestion
+  source_URL: https://data.mendeley.com/datasets/72ptz43s9v/1
+  local_data_file: artifacts/data_full.csv
+
+data_transformation:
+  root_dir: components/data_transformation
+  data_dir: components/data_ingestion
+  train_file_name: dataset_full.csv
+  test_file_name: dataset_small.csv
+  train_trans: train.csv
+  test_trans: test.csv
+
+data_validation:
+  root_dir: components/data_validation
+  data_dir: components/data_ingestion
+  train_file_name: dataset_full.csv
+  test_file_name: dataset_small.csv 
+  report_file_path: report.json
+
+model_trainer:
+  trained_model_dir: components/ trained_model
+  data_dir: components/data_transformation
+  train_file: train.csv
+  test_file: test.csv
+  model_file_name: model.joblib
+ 
+
+pipeline_config_root: pipeline
+steps:
+  predictions: predict_pipeline
+  tranings: train_pipeline
+
+version : 
+ current__version : 0.0.1
+
+ best model_file_name: model.pkl
+
