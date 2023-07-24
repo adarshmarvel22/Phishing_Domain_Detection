@@ -10,6 +10,12 @@ from src.utils import load_object
 warnings.filterwarnings('ignore')
 from feature import FeatureExtraction
 
+from src.exception import CustomException
+from src.logger import logging 
+
+from src.pipeline.train_pipeline import TraininingPipeline
+from src.pipeline.predict_pipeline import PredictPipeline
+
 # print("model load start")
 
 model_path=os.path.join('artifacts','model.pkl')
@@ -36,9 +42,6 @@ def index():
         x = np.array(obj.getFeaturesList()).reshape(1,25) 
 
         y_pred =model.predict(x)[0]
-
-        #1 is safe       
-        #-1 is unsafe
         
         y_pro_phishing = model.predict_proba(x)[0,0]
         y_pro_non_phishing = model.predict_proba(x)[0,1]
@@ -49,6 +52,17 @@ def index():
             result = f"The site is {round(y_pro_phishing,2)*100} % unsafe ❌"
         return render_template('index.html',result = result)
     return render_template("index.html")
+
+@app.route("/train")
+def train_route():
+    try:
+        train_pipeline = TraininingPipeline()
+        train_pipeline.run_pipeline()
+
+        return "Training Completed."
+
+    except Exception as e:
+        raise CustomException(e,sys)
 
 @app.route('/report')
 def report():
