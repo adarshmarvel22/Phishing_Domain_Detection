@@ -3,11 +3,11 @@ numpy
 pandas
 scikit-learn
 notebook
-logging
+# logging
 exception
 matplotlib
 seaborn
-python-box==6.0.2
+# python-box==6.0.2
 pyYAML
 tqdm
 whois
@@ -22,7 +22,14 @@ scikit-learn
 xgboost
 evidently
 googlesearch_python==1.0.1
--e .
+gunicorn
+Flask
+whois
+imbalanced-learn
+ipaddress
+bs4
+
+# -e .
 
 #  It instructs the package manager (such as pip) to install the project in editable mode, allowing 
 # you to make changes to the project's code and have those changes immediately reflected without 
