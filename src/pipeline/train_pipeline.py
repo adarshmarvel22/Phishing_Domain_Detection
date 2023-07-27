@@ -56,15 +56,16 @@ class TraininingPipeline:
         except Exception as e:
             raise CustomException(e, sys)
 logging.info("training_pipeline is started")
-if __name__=='__main__':
-    try:
-        train_pipeline = TraininingPipeline()
-        train_pipeline.run_pipeline()
 
-        logging.info("Training Completed.")
+# if __name__=='__main__':
+#     try:
+#         train_pipeline = TraininingPipeline()
+#         train_pipeline.run_pipeline()
+
+#         logging.info("Training Completed.")
         
-    except Exception as e:
-        raise CustomException(e,sys)
+#     except Exception as e:
+#         raise CustomException(e,sys)
     # obj=DataIngestion()
     # train_data_path,test_data_path=obj.initiate_data_ingestion()
     # print(train_data_path,test_data_path)

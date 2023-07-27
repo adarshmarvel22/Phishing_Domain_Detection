@@ -9,6 +9,10 @@ import pickle
 warnings.filterwarnings('ignore')
 from feature import FeatureExtraction
 
+from src.exception import CustomException
+from src.pipeline.train_pipeline import TraininingPipeline
+from src.pipeline.predict_pipeline import PredictionPipeline
+
 # print("model load start")
 
 model_path=os.path.join('artifacts','model.pkl')
