@@ -1,0 +1,23 @@
+[build-system]
+requires = ["python>=3.10"]
+build-backend = "flask.api"
+
+[tool.model]
+name = "Phishing_Domain_Detection"
+version = "0.0.1"
+description = "Phishing_Domain_Detection"
+authors = ["Adarsh Maurya  <adarshmsd1@gmail.com>,Akash Kumar <akasr1603@gmail.com,Sachin Sharma <sharnasachin95880@gmail.com>,Priya Singh <priyasingh2332000@gmail.com"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+requests = "^2.25.0"
+
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.5"
+pytest>="7."1.2"
+mypy>="0.971"
+flake8>="6.0."0
+tox>="3.25.1"
+black>="22.6."0
+

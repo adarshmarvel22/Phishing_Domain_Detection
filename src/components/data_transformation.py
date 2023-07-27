@@ -1,6 +1,6 @@
 from sklearn.impute import SimpleImputer ## HAndling Missing Values
 from sklearn.preprocessing import StandardScaler # HAndling Feature Scaling
-from sklearn.preprocessing import OrdinalEncoder # Ordinal Encoding
+# from sklearn.preprocessing import OrdinalEncoder # Ordinal Encoding
 ## pipelines
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
@@ -20,6 +20,7 @@ from src.utils import save_object
 
 @dataclass
 class DataTransformationconfig:
+    logging.info("data_transformation_config class started")
     preprocessor_obj_file_path=os.path.join('artifacts','preprocessor.pkl')
 
 
@@ -50,7 +51,7 @@ class DataTransformation:
                                 'qty_plus_params', 'qty_percent_params', 
                                 'time_domain_activation'
                                 ]
-            
+            # print(len(numerical_cols))
             logging.info('Pipeline Initiated')
 
             ## Numerical Pipeline
@@ -66,7 +67,7 @@ class DataTransformation:
             ])
             
             return preprocessor
-
+            
             logging.info('Pipeline Completed')
 
          except Exception as e:
@@ -215,3 +216,4 @@ class DataTransformation:
             logging.info("Exception occured in the initiate_datatransformation")
 
             raise CustomException(e,sys)
+        

@@ -1,6 +1,6 @@
-# README
+<h1 align="center">Phishing Domain Detection</h1>
 
-This repository contains code for a project that analyzes the features of URLs and domains and predcts whether it is safe or malicious (by percentage). The project is designed to help identify malicious URLs and domains.
+This repository contains code for a project that analyzes the features of URLs and domains and predicts whether they are safe or malicious. The project aims to identify and detect malicious URLs and domains commonly associated with phishing attacks.
 
 ## Features
 
@@ -10,17 +10,13 @@ The project includes the following features:
 * Analysis of the features of URLs and domains
 * Visualization of the results of the analysis
 
-# 📄✏ Problem Statement:
-**Brief:** Phishing is a type of fraud in which an attacker impersonates a reputable company or 
-person in order to get sensitive information such as login credentials or account 
-information via email or other communication channels. Phishing is popular among 
-attackers because it is easier to persuade someone to click a malicious link that appears 
-to be authentic than it is to break through a computer's protection measures.
-##### The mail goal is to predict whether the domains are real or malicious.
+## Problem Statement
 
-#### 
+Phishing is a type of fraud in which attackers impersonate reputable companies or individuals to deceive users and obtain sensitive information such as login credentials or account details. The goal of this project is to predict whether domains are real or malicious, helping users identify potential phishing attempts.
 
-## Project folder Structure
+## Project Folder Structure
+
+
 ```
 Phishing_Domain_Detection 
 ├───artifacts
@@ -108,6 +104,9 @@ Sachin Sharma: sharmasachin95880@gmail.com
 ```
 Akash Kumar: akasr1603@gmail.com
 ```
+```
+Priya Singh : priyasingh2332000@gmail.com
+```
 
 ## Data
 The dataset is taken from Mendeley Data: https://data.mendeley.com/datasets/72ptz43s9v/1
@@ -121,7 +120,7 @@ The version 0.0.1 (branch adarsh has an accuracy of 96.88% in predicting malicio
 
 ## Contributors
 
-This project was created by Adarsh Maurya, Sachin Sharma, Akash Kumar,Priya Singh
+This project was created by Adarsh Maurya,  Akash Kumar, Sachin Sharma,Priya Singh.
 
 ## Purpose
 
