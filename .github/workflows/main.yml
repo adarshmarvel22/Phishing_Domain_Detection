@@ -19,5 +19,5 @@ jobs:
       - name: Push image to AWS ECR
         uses: aws-actions/amazon-ecr-push@v1.4.0
         with:
-          repository: USERNAME/phishing_domain_detection
+          repository: 686574331088.dkr.ecr.ap-south-1.amazonaws.com/phishing_domain_detection
           image-tag: latest

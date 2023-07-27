@@ -1,0 +1,9 @@
+[ 2023-07-27 22:06:04,510 ] 23 root - INFO - data_transformation_config class started
+[ 2023-07-27 22:06:04,580 ] 58 root - INFO - training_pipeline is started
+[ 2023-07-27 22:06:04,670 ] 187 werkzeug - WARNING -  * Debugger is active!
+[ 2023-07-27 22:06:04,682 ] 187 werkzeug - INFO -  * Debugger PIN: 636-790-188
+[ 2023-07-27 22:06:17,220 ] 187 werkzeug - INFO - 127.0.0.1 - - [27/Jul/2023 22:06:17] "GET / HTTP/1.1" 200 -
+[ 2023-07-27 22:06:17,626 ] 187 werkzeug - INFO - 127.0.0.1 - - [27/Jul/2023 22:06:17] "GET /static/style.css HTTP/1.1" 200 -
+[ 2023-07-27 22:06:18,548 ] 187 werkzeug - INFO - 127.0.0.1 - - [27/Jul/2023 22:06:18] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[ 2023-07-27 22:06:25,123 ] 187 werkzeug - INFO - 127.0.0.1 - - [27/Jul/2023 22:06:25] "POST /predict HTTP/1.1" 200 -
+[ 2023-07-27 22:06:25,150 ] 187 werkzeug - INFO - 127.0.0.1 - - [27/Jul/2023 22:06:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
