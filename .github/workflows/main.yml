@@ -1,0 +1,23 @@
+name: Deploy to AWS ECR
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build image
+        run: docker build -t phishing_domain_detection .
+
+      - name: Push image to AWS ECR
+        uses: aws-actions/amazon-ecr-push@v1.4.0
+        with:
+          repository: USERNAME/phishing_domain_detection
+          image-tag: latest
