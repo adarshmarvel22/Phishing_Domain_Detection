@@ -1,0 +1,14 @@
+[ 2023-07-27 23:07:08,867 ] 23 root - INFO - data_transformation_config class started
+[ 2023-07-27 23:07:08,933 ] 58 root - INFO - training_pipeline is started
+[ 2023-07-27 23:07:09,121 ] 187 werkzeug - WARNING -  * Debugger is active!
+[ 2023-07-27 23:07:09,121 ] 187 werkzeug - INFO -  * Debugger PIN: 636-790-188
+[ 2023-07-27 23:08:56,062 ] 187 werkzeug - INFO - 127.0.0.1 - - [27/Jul/2023 23:08:56] "POST /predict HTTP/1.1" 200 -
+[ 2023-07-27 23:08:56,304 ] 187 werkzeug - INFO - 127.0.0.1 - - [27/Jul/2023 23:08:56] "[33mGET /graph2.png HTTP/1.1[0m" 404 -
+[ 2023-07-27 23:08:56,398 ] 187 werkzeug - INFO - 127.0.0.1 - - [27/Jul/2023 23:08:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+[ 2023-07-27 23:08:56,431 ] 187 werkzeug - INFO - 127.0.0.1 - - [27/Jul/2023 23:08:56] "[33mGET /graph1.png HTTP/1.1[0m" 404 -
+[ 2023-07-27 23:08:56,432 ] 187 werkzeug - INFO - 127.0.0.1 - - [27/Jul/2023 23:08:56] "[33mGET /MAurya.jpeg HTTP/1.1[0m" 404 -
+[ 2023-07-27 23:08:56,436 ] 187 werkzeug - INFO - 127.0.0.1 - - [27/Jul/2023 23:08:56] "[33mGET /PROFILE%20SACHIN1.png HTTP/1.1[0m" 404 -
+[ 2023-07-27 23:08:56,443 ] 187 werkzeug - INFO - 127.0.0.1 - - [27/Jul/2023 23:08:56] "[33mGET /kumarAkash.jpeg HTTP/1.1[0m" 404 -
+[ 2023-07-27 23:08:56,617 ] 187 werkzeug - INFO - 127.0.0.1 - - [27/Jul/2023 23:08:56] "[33mGET /priya.jpg HTTP/1.1[0m" 404 -
+[ 2023-07-27 23:08:56,719 ] 187 werkzeug - INFO - 127.0.0.1 - - [27/Jul/2023 23:08:56] "[36mGET /static/bg.jpg HTTP/1.1[0m" 304 -
+[ 2023-07-27 23:09:36,428 ] 187 werkzeug - INFO - 127.0.0.1 - - [27/Jul/2023 23:09:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -

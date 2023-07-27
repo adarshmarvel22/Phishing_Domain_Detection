@@ -4,8 +4,31 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Phishing Detector</title>
+    <title>Phishing Domain  Detector</title>
 
+    <!-- Fevicon -->
+    <link
+      rel="shortcut icon"
+      href="../static/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="icon" href="../static/favicon.ico" type="image/x-icon" />
+
+    <!--Link for Google Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap"
+      rel="stylesheet"
+    />
 
     <!--CSS and Bootstrap CDN-->
     <link
@@ -18,13 +41,45 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="title navbar-brand" href="#">Domain Phishing</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#home"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#features">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#report">DataReport</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-
-    <!-- <form method="get" action="/train">Train</form> -->
     <!--Home section-->
     <section id="home" class="home-section">
       <div class="container">
-        <h1 class="title-text">Phishing Domain Detection</h1>
+        <h1 class="landing-text">Detect Phishing Domain.</h1>
         <form method="post" action="/predict" class="search-box">
           <input
             id="txt_1"
@@ -40,7 +95,217 @@
         <p class="result">{{result}}</p>
       </div>
     </section>
-  
+
+<!-- Carausel section  -->
+
+    <div id="carouselExampleIndicators" class="carousel slide">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="graph2.png" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="graph2.png" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="graph1.png" class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+
+    <!--Data Report-->
+    <section id="report">
+      <div class="report-container">
+        <div class="intro-report">
+          <h3>About Phishing Domain Detection Dataset</h3>
+          <p>
+            Phishing stands for a fraudulent process, where an attacker tries to
+            obtain sensitive information from the victim. Usually, these kinds
+            of attacks are done via emails, text messages, or websites. Phishing
+            websites, which are nowadays in a considerable rise, have the same
+            look as legitimate sites. However, their backend is designed to
+            collect sensitive information that is inputted by the victim.
+            Discovering and detecting phishing websites has recently also gained
+            the machine learning community’s attention, which has built the
+            models and performed classifications of phishing websites. This
+            paper presents two dataset variations that consist of 58,645 and
+            88,647 websites labeled as legitimate or phishing and allow the
+            researchers to train their classification models, build phishing
+            detection systems, and mining association rules.
+          </p>
+          <p id = 'data_info'> 
+            For data information
+            <a href="/data" target="_blank" style="color: black;
+            border: 2px solid #070000;
+            border-radius: 8px;
+            padding: 7px;
+            text-decoration:none;
+            background-color: rgb(255, 255, 255);
+            ">Click here</a>
+          </p>
+         
+        </div>
+      </div>
+    </section>
+
+    <!--About Us-->
+    <div class="card shadow-lg">
+        <div class="search-box">
+          <div class="container">
+            <div class="row">
+            <div class="col-lg-8"></div>
+              <div class="col-lg-4">   
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class="card-body">
+        <div class="basis-member staff">
+          <h1 style="font-weight: bold; font-style: italic;"> <center>Who We are ?</center>
+          </h1>
+          <p class="text" style="color: rgb(36, 68, 228); font-style: italic; padding-left: 10px;">We are a team of college students pursuing B.Tech in Computer Science and Engineering. Skilled in various
+            technologies and frameworks (which includes MERN stack web development, App development, Competitive
+            programming, etc). our motive is destined to build great projects and dive deep in this exciting tech world
+            of Computer Science.
+            <br>
+            <b>We strongly believe that our skills, experience, strong work ethic, customer service experience,
+               communication skills and eagerness to learn will serve the community in the best way possible.</b>
+         </p>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="card member-box shadow-lg">
+              <span class="shape"></span>
+              <img class="card-img-top" src="MAurya.jpeg" alt="">
+              <div class="card-body">
+                <span class="member-degignation">DATA SCIENTIST <strong>(Project Lead)</strong></span>
+                <h4 class="member-title">Er. Adarsh Maurya </h4>
+                <small>Bundelkhand University Jhansi</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="card member-box shadow-lg">
+              <span class="shape"></span>
+              <img class="card-img-top" src="PROFILE SACHIN1.png" alt="">
+              <div class="card-body">
+                <span class="member-degignation">DATA SCIENTIST</span>
+                <h4 class="member-title">Er.Sachin Sharma</h4>
+                <small>Bundelkhand University Jhansi</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="card member-box shadow-lg">
+              <span class="shape"></span>
+              <img class="card-img-top" src="kumarAkash.jpeg" alt="">
+              <div class="card-body">
+                <span class="member-degignation">DATA SCIENTIST</span>
+                <h4 class="member-title">Er.Akash Kumar</h4>
+                <small>Bundelkhand University Jhansi</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="card member-box shadow-lg">
+              <span class="shape"></span>
+              <img class="card-img-top" src="priya.jpg" alt="">
+              <div class="card-body" style="padding: 10px;">
+                <span class="member-degignation">SOFTWARE ENGINEER</span>
+                <h4 class="member-title">Er. Priya Singh  </h4>
+                <small>Bundelkhand University Jhansi</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+    </div>
+
+<!-- footer  -->
+
+<div class="footer">
+  <div class="heading">
+    <h2>Runtime Terror <sup>™</sup></h2>
+  </div>
+  <div class="content">
+    <div class="services">
+      <h4>Services</h4>
+      <p><a href="#">Data Scientist</a></p>
+      <p><a href="#">Web development</a></p>
+      <p><a href="#">DevOps</a></p>
+      <p><a href="#">Web designing</a></p>
+    </div>
+    <div class="social-media">
+      <h4>Social</h4>
+      <p>
+        <a href="#"
+          ><i class="fab fa-linkedin"></i> Linkedin</a
+        >
+      </p>
+      <p>
+        <a href="#"
+          ><i class="fab fa-twitter"></i> Twitter</a
+        >
+      </p>
+      <p>
+        <a href="https://github.com/farazc60"
+          ><i class="fab fa-github"></i> Github</a
+        >
+      </p>
+      <p>
+        <a href="https://www.facebook.com/codewithfaraz"
+          ><i class="fab fa-facebook"></i> Facebook</a
+        >
+      </p>
+      <p>
+        <a href="https://www.instagram.com/codewithfaraz"
+          ><i class="fab fa-instagram"></i> Instagram</a
+        >
+      </p>
+    </div>
+    <div class="links">
+      <h4>Quick links</h4>
+      <p><a href="#">Home</a></p>
+      <p><a href="#">About</a></p>
+      <p><a href="#">Blogs</a></p>
+      <p><a href="#">Contact</a></p>
+    </div>
+    <div class="details">
+      <h4 class="address">Address</h4>
+      <p>
+        Lorem ipsum dolor sit amet consectetur <br />
+        adipisicing elit. Cupiditate, qui!
+      </p>
+      <h4 class="mobile">Mobile</h4>
+      <p><a href="#">+91-12225*****</a></p>
+      <h4 class="mail">Email</h4>
+      <p><a href="#">neuroshphereai@gmail.com</a></p>
+    </div>
+  </div>
+  <footer>
+    <hr />
+    © 2023 Runtime Terror 4.0
+  </footer>
+</div>
+
+
+
+
     <script type="text/javascript">
       document.getElementById("txt_1").value = getSavedValue("txt_1"); // set the value to this input
       /* Here you can add more inputs to set value. if it's saved */

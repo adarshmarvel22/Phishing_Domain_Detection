@@ -1,0 +1,6 @@
+[ 2023-07-27 23:07:06,020 ] 23 root - INFO - data_transformation_config class started
+[ 2023-07-27 23:07:06,092 ] 58 root - INFO - training_pipeline is started
+[ 2023-07-27 23:07:06,209 ] 187 werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+[ 2023-07-27 23:07:06,210 ] 187 werkzeug - INFO - [33mPress CTRL+C to quit[0m
+[ 2023-07-27 23:07:06,220 ] 187 werkzeug - INFO -  * Restarting with stat

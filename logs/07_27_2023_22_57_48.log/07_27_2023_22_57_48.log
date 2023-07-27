@@ -1,0 +1,14 @@
+[ 2023-07-27 22:57:50,312 ] 23 root - INFO - data_transformation_config class started
+[ 2023-07-27 22:57:50,391 ] 58 root - INFO - training_pipeline is started
+[ 2023-07-27 22:57:50,480 ] 187 werkzeug - WARNING -  * Debugger is active!
+[ 2023-07-27 22:57:50,480 ] 187 werkzeug - INFO -  * Debugger PIN: 636-790-188
+[ 2023-07-27 22:58:09,109 ] 187 werkzeug - INFO - 127.0.0.1 - - [27/Jul/2023 22:58:09] "GET / HTTP/1.1" 200 -
+[ 2023-07-27 22:58:09,602 ] 187 werkzeug - INFO - 127.0.0.1 - - [27/Jul/2023 22:58:09] "[33mGET /graph2.png HTTP/1.1[0m" 404 -
+[ 2023-07-27 22:58:09,926 ] 187 werkzeug - INFO - 127.0.0.1 - - [27/Jul/2023 22:58:09] "[33mGET /graph1.png HTTP/1.1[0m" 404 -
+[ 2023-07-27 22:58:09,928 ] 187 werkzeug - INFO - 127.0.0.1 - - [27/Jul/2023 22:58:09] "[33mGET /MAurya.jpeg HTTP/1.1[0m" 404 -
+[ 2023-07-27 22:58:09,931 ] 187 werkzeug - INFO - 127.0.0.1 - - [27/Jul/2023 22:58:09] "[33mGET /PROFILE%20SACHIN1.png HTTP/1.1[0m" 404 -
+[ 2023-07-27 22:58:09,932 ] 187 werkzeug - INFO - 127.0.0.1 - - [27/Jul/2023 22:58:09] "[33mGET /kumarAkash.jpeg HTTP/1.1[0m" 404 -
+[ 2023-07-27 22:58:09,932 ] 187 werkzeug - INFO - 127.0.0.1 - - [27/Jul/2023 22:58:09] "[33mGET /priya.jpg HTTP/1.1[0m" 404 -
+[ 2023-07-27 22:58:10,229 ] 187 werkzeug - INFO - 127.0.0.1 - - [27/Jul/2023 22:58:10] "GET /static/style.css HTTP/1.1" 200 -
+[ 2023-07-27 22:58:10,553 ] 187 werkzeug - INFO - 127.0.0.1 - - [27/Jul/2023 22:58:10] "GET /static/bg.jpg HTTP/1.1" 200 -
+[ 2023-07-27 22:58:10,813 ] 187 werkzeug - INFO - 127.0.0.1 - - [27/Jul/2023 22:58:10] "[33mGET /static/favicon.ico HTTP/1.1[0m" 404 -
