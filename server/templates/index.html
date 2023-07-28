@@ -106,13 +106,10 @@
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="graph2.png" class="d-block w-100" alt="...">
+          <img src="{{ url_for('static', filename='/graph1.png')}}" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-          <img src="graph2.png" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="graph1.png" class="d-block w-100" alt="...">
+          <img src="{{ url_for('static', filename='/graph2.png')}}" class="d-block w-100" alt="...">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -189,7 +186,7 @@
           <div class="col-lg-3">
             <div class="card member-box shadow-lg">
               <span class="shape"></span>
-              <img class="card-img-top" src="MAurya.jpeg" alt="">
+              <img class="card-img-top" src="{{ url_for('static', filename='/MAurya.jpeg')}}" alt="">
               <div class="card-body">
                 <span class="member-degignation">DATA SCIENTIST <strong>(Project Lead)</strong></span>
                 <h4 class="member-title">Er. Adarsh Maurya </h4>
@@ -200,7 +197,7 @@
           <div class="col-lg-3">
             <div class="card member-box shadow-lg">
               <span class="shape"></span>
-              <img class="card-img-top" src="PROFILE SACHIN1.png" alt="">
+              <img class="card-img-top" src="{{ url_for('static', filename='/PROFILE SACHIN.jpeg')}}" alt="">
               <div class="card-body">
                 <span class="member-degignation">DATA SCIENTIST</span>
                 <h4 class="member-title">Er.Sachin Sharma</h4>
@@ -211,7 +208,7 @@
           <div class="col-lg-3">
             <div class="card member-box shadow-lg">
               <span class="shape"></span>
-              <img class="card-img-top" src="kumarAkash.jpeg" alt="">
+              <img class="card-img-top" src="{{ url_for('static', filename='/kumarAkash.jpeg')}}" alt="">
               <div class="card-body">
                 <span class="member-degignation">DATA SCIENTIST</span>
                 <h4 class="member-title">Er.Akash Kumar</h4>
@@ -222,7 +219,7 @@
           <div class="col-lg-3">
             <div class="card member-box shadow-lg">
               <span class="shape"></span>
-              <img class="card-img-top" src="priya.jpg" alt="">
+              <img class="card-img-top" src="{{ url_for('static', filename='/priya.jpeg')}}" alt="">
               <div class="card-body" style="padding: 10px;">
                 <span class="member-degignation">SOFTWARE ENGINEER</span>
                 <h4 class="member-title">Er. Priya Singh  </h4>
