@@ -1,20 +1,16 @@
-# Use the official Python image as the base image
-FROM python:3.9-slim
+FROM python:3.8.3-alpine
 
-# Set the working directory inside the container
-WORKDIR /app
+RUN pip install --upgrade pip
 
-# Copy the required files and directories into the container
-COPY . /app
+RUN adduser -D myuser
+USER myuser
+WORKDIR /home/myuser
 
-# Install required system dependencies
-# RUN apt-get update && \
-#     apt-get install -y gcc
+COPY --chown=myuser:myuser requirements.txt requirements.txt
+RUN pip install --user -r requirements.txt
 
-# Install Python dependencies
-RUN pip install  -r requirements.txt
+ENV PATH="/home/myuser/.local/bin:${PATH}"
 
-# Expose the port used by your application (if any)
-# EXPOSE <port_number>
+COPY --chown=myuser:myuser . .
 
 CMD ["python", "server/app.py"]
