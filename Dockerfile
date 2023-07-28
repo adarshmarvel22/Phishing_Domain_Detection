@@ -8,8 +8,8 @@ WORKDIR /app
 COPY . /app
 
 # Install required system dependencies
-RUN apt-get update && \
-    apt-get install -y gcc
+# RUN apt-get update && \
+#     apt-get install -y gcc
 
 # Install Python dependencies
 RUN pip install  -r requirements.txt
