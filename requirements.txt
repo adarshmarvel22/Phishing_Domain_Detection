@@ -1,37 +1,38 @@
-dvc
+# dvc
 numpy
 pandas
 scikit-learn
-notebook
-# logging
-exception
-matplotlib
-seaborn
+# notebook
+# # logging
+# exception
+# matplotlib
+# seaborn
 # python-box==6.0.2
-pyYAML
-tqdm
-whois
-ensure==1.0.2
-joblib
-types-PyYAML
-mlflow==1.26.1
-ipykernel
-xgboost
-imbalanced-learn
-scikit-learn
-xgboost
-evidently
-googlesearch_python==1.0.1
-gunicorn
+# pyYAML
+# tqdm
+# whois
+# ensure==1.0.2
+# joblib
+# types-PyYAML
+# mlflow==1.26.1
+# ipykernel
+# xgboost
+# imbalanced-learn
+# scikit-learn
+# xgboost
+# evidently
+googlesearch-python
+# gunicorn
 Flask
 whois
-imbalanced-learn
-ipaddress
+# imbalanced-learn
+# ipaddress
 bs4
+requests
 
-# -e .
+-e .
 
-#  It instructs the package manager (such as pip) to install the project in editable mode, allowing 
+# It instructs the package manager (such as pip) to install the project in editable mode, allowing 
 # you to make changes to the project's code and have those changes immediately reflected without 
 # reinstalling the package.
 
