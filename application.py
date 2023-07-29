@@ -77,4 +77,4 @@ def data():
     return redirect('https://www.sciencedirect.com/science/article/pii/S2352340920313202')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0")
