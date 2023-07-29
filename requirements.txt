@@ -1,40 +1,18 @@
-dvc
 numpy
 pandas
 scikit-learn
-notebook
-# logging
-exception
 matplotlib
 seaborn
-# python-box==6.0.2
-pyYAML
-tqdm
-whois
-ensure==1.0.2
-joblib
-types-PyYAML
-mlflow==1.26.1
-ipykernel
-xgboost
-imbalanced-learn
-scikit-learn
-xgboost
-evidently
-googlesearch_python==1.0.1
 gunicorn
 Flask
 whois
 imbalanced-learn
+googlesearch_python==1.0.1
 ipaddress
 bs4
 
-# -e .
-
-#  It instructs the package manager (such as pip) to install the project in editable mode, allowing 
-# you to make changes to the project's code and have those changes immediately reflected without 
-# reinstalling the package.
-
-# By including -e . in the requirements.txt file, you can ensure that when someone installs the 
-# project's dependencies using pip install -r requirements.txt, the current project is included and 
-# installed in editable mode.
+sklearn
+python-whois
+matplotlib
+seaborn
+xgboost

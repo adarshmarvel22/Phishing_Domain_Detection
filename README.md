@@ -82,7 +82,7 @@ python setup.py install
 ```
 5. Run Application
 ```
-python app.py
+python server\app.py
 ```
 
 🔧 Built with

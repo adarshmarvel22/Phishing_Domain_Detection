@@ -20,6 +20,7 @@ from src.utils import save_object
 
 @dataclass
 class DataTransformationconfig:
+    logging.info("data_transformation_config class started")
     preprocessor_obj_file_path=os.path.join('artifacts','preprocessor.pkl')
 
 
@@ -66,7 +67,7 @@ class DataTransformation:
             ])
             
             return preprocessor
-
+            
             logging.info('Pipeline Completed')
 
          except Exception as e:
@@ -215,3 +216,4 @@ class DataTransformation:
             logging.info("Exception occured in the initiate_datatransformation")
 
             raise CustomException(e,sys)
+        

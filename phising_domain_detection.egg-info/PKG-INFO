@@ -4,3 +4,9 @@ Version: 0.0.1
 Summary: A python package for phising domain detection
 Author: adarsh
 Author-email: adarshmarvel22@gmail.com
+License: GNU GENERAL PUBLIC LICENSE
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Provides-Extra: testing
+License-File: LICENSE

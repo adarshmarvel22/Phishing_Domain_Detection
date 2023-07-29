@@ -1,4 +1,6 @@
+LICENSE
 README.md
+setup.cfg
 setup.py
 phising_domain_detection.egg-info/PKG-INFO
 phising_domain_detection.egg-info/SOURCES.txt
