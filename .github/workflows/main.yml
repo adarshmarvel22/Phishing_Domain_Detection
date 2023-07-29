@@ -1,56 +1,51 @@
-name: workflow
+name: CI/CD Pipeline
 
 on:
   push:
     branches:
       - main
-    paths-ignore:
-      - 'README.md'
-
-permissions:
-  id-token: write
-  contents: read
 
 jobs:
-  integration:
-    name: Continuous Integration
+  build_and_deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - name: Lint code
-        run: echo "Linting repository"
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
 
-      - name: Run unit tests
-        run: echo "Running unit tests"
-
-  build-and-push-ecr-image:
-    name: Continuous Delivery
-    needs: integration
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
+      - name: Build and push Docker image
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: |
+          echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+          docker buildx create --use
+          docker buildx build --push -t $DOCKER_USERNAME/phishing_domain_detection .
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+          aws-region: <YOUR_AWS_REGION>
 
-      - name: Login to Amazon ECR
-        id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
-
-      - name: Build, tag, and push image to Amazon ECR
-        id: build-image
+      - name: Deploy to AWS ECS
         env:
-          IMAGE_TAG: latest
+          AWS_ECR_REPO: <YOUR_AWS_ECR_REPO>
+          AWS_ECS_CLUSTER: <YOUR_AWS_ECS_CLUSTER>
+          AWS_ECS_SERVICE: <YOUR_AWS_ECS_SERVICE>
         run: |
-          # Build a docker container and
-          # push it to ECR so that it can
-          # be deployed to ECS.
-          docker build -t ${{ secrets.AWS_ECR_REPO_URI }}:$IMAGE_TAG .
-          docker push ${{ secrets.AWS_ECR_REPO_URI }}:$IMAGE_TAG
+          # Assuming you have the AWS CLI installed in the container
+          $(aws ecr get-login --no-include-email --region <YOUR_AWS_REGION>)
+          docker tag $DOCKER_USERNAME/phishing_domain_detection:latest $AWS_ECR_REPO:latest
+          docker push $AWS_ECR_REPO:latest
+
+          # Assuming you have the ECS CLI installed in the container
+          ecs-cli configure profile --profile-name default --access-key $AWS_ACCESS_KEY_ID --secret-key $AWS_SECRET_ACCESS_KEY
+          ecs-cli compose --project-name phishing_domain_detection service up --cluster $AWS_ECS_CLUSTER --service-name $AWS_ECS_SERVICE
+
+      - name: Clean up Docker Buildx
+        run: docker buildx rm
