@@ -21,7 +21,7 @@ scikit-learn
 # scikit-learn
 # xgboost
 # evidently
-googlesearch-python
+googlesearch-python==1.0.1
 # gunicorn
 Flask
 whois
