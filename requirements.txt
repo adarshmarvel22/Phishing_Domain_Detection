@@ -1,5 +1,5 @@
 # dvc
-numpy
+# numpy
 pandas
 scikit-learn
 # notebook
