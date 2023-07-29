@@ -1,7 +1,4 @@
 # dvc
-# numpy
-pandas
-scikit-learn
 # notebook
 # # logging
 # exception
@@ -21,16 +18,20 @@ scikit-learn
 # scikit-learn
 # xgboost
 # evidently
-googlesearch-python==1.0.1
-# gunicorn
-Flask
-whois
 # imbalanced-learn
 # ipaddress
-bs4
-requests
+# gunicorn
 
--e .
+# numpy
+# pandas
+# scikit-learn
+# googlesearch-python==1.0.1
+Flask
+# whois
+# bs4
+# requests
+
+# -e .
 
 # It instructs the package manager (such as pip) to install the project in editable mode, allowing 
 # you to make changes to the project's code and have those changes immediately reflected without 
