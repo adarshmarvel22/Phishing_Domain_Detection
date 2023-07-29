@@ -1,21 +1,23 @@
-# Use the official Python image as the base image
+# Use a base image with Python installed
 FROM python:3.9-slim
 
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the required files and directories into the container
-COPY . /app
+# Copy the requirements.txt file to the container
+COPY requirements.txt .
 
-# Install required system dependencies
-# RUN apt-get update && \
-#     apt-get install -y gcc
+# Install the Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Install Python dependencies
-# RUN pip install --no-cache-dir -r requirements.txt
+# Copy the entire project directory to the container
+COPY . .
 
-# Expose the port used by your Flask app
-# EXPOSE 5000
+# Expose the port that the server will be running on
+EXPOSE 8000
 
-# Define the command to run your Flask app
+# Set the environment variable to tell Python to run in unbuffered mode
+ENV PYTHONUNBUFFERED 1
+
+# Set the entry point command to run the server
 CMD ["python", "server/app.py"]
