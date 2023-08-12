@@ -46,7 +46,7 @@ def index():
         y_pro_phishing = model.predict_proba(x)[0,0]
         y_pro_non_phishing = model.predict_proba(x)[0,1]
        
-        if y_pred == 1:
+        if y_pred == 1 and (round(y_pro_non_phishing,2)*100)>70:
             result = f"  The site is {round(y_pro_non_phishing,2)*100} % safe ✅"
         else:
             result = f"The site is {round(y_pro_phishing,2)*100} % unsafe ❌"

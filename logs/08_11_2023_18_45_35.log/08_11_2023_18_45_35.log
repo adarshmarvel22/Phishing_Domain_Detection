@@ -1,0 +1,11 @@
+[ 2023-08-11 18:45:36,227 ] 187 werkzeug - WARNING -  * Debugger is active!
+[ 2023-08-11 18:45:36,243 ] 187 werkzeug - INFO -  * Debugger PIN: 636-790-188
+[ 2023-08-11 18:45:39,472 ] 187 werkzeug - INFO - 127.0.0.1 - - [11/Aug/2023 18:45:39] "POST /predict HTTP/1.1" 200 -
+[ 2023-08-11 18:45:39,683 ] 187 werkzeug - INFO - 127.0.0.1 - - [11/Aug/2023 18:45:39] "GET /static/style.css HTTP/1.1" 200 -
+[ 2023-08-11 18:45:39,704 ] 187 werkzeug - INFO - 127.0.0.1 - - [11/Aug/2023 18:45:39] "[33mGET /graph2.png HTTP/1.1[0m" 404 -
+[ 2023-08-11 18:45:39,807 ] 187 werkzeug - INFO - 127.0.0.1 - - [11/Aug/2023 18:45:39] "[33mGET /graph1.png HTTP/1.1[0m" 404 -
+[ 2023-08-11 18:45:39,808 ] 187 werkzeug - INFO - 127.0.0.1 - - [11/Aug/2023 18:45:39] "[36mGET /static/bg.jpg HTTP/1.1[0m" 304 -
+[ 2023-08-11 18:45:39,809 ] 187 werkzeug - INFO - 127.0.0.1 - - [11/Aug/2023 18:45:39] "[33mGET /MAurya.jpeg HTTP/1.1[0m" 404 -
+[ 2023-08-11 18:45:39,814 ] 187 werkzeug - INFO - 127.0.0.1 - - [11/Aug/2023 18:45:39] "[33mGET /PROFILE%20SACHIN1.png HTTP/1.1[0m" 404 -
+[ 2023-08-11 18:45:39,991 ] 187 werkzeug - INFO - 127.0.0.1 - - [11/Aug/2023 18:45:39] "[33mGET /kumarAkash.jpeg HTTP/1.1[0m" 404 -
+[ 2023-08-11 18:45:40,023 ] 187 werkzeug - INFO - 127.0.0.1 - - [11/Aug/2023 18:45:40] "[33mGET /priya.jpg HTTP/1.1[0m" 404 -

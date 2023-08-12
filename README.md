@@ -55,6 +55,12 @@ Phishing_Domain_Detection
 └───requirements.txt
 └───setup.py
 └───setup.cfg
+|___documentation
+             |____Architecture.pdf
+             |____DPR.pdf
+             |____HLD.pdf
+             |____LLD.pdf
+             |____Wireframe.pdf
 
 ```
 
