@@ -3,7 +3,7 @@
 This repository contains code for a project that analyzes the features of URLs and domains and predicts whether they are safe or malicious. The project aims to identify and detect malicious URLs and domains commonly associated with phishing attacks.
 
 ## Deployed Website link:
-[https://www.ikarussecurity.com/en/private-customers/download-test-viruses-for-free/](http://high-env.eba-anerfymt.ap-south-1.elasticbeanstalk.com/)
+[https://www.phishing-domain-detector.com](http://high-env.eba-anerfymt.ap-south-1.elasticbeanstalk.com/)
 
 ## Features
 
