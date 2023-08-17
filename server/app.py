@@ -28,10 +28,12 @@ file.close()
 app = Flask(__name__)
 
 @app.route('/')
+@cross_origin()
 def homePage():
     return render_template('index.html')
 
 @app.route('/predict',methods=['GET','POST'])
+@cross_origin()
 def index():
     if request.method == "POST":
 
@@ -54,6 +56,7 @@ def index():
     return render_template("index.html")
 
 @app.route("/train")
+@cross_origin()
 def train_route():
     try:
         train_pipeline = TraininingPipeline()
@@ -65,12 +68,14 @@ def train_route():
         raise CustomException(e,sys)
 
 @app.route('/report')
+@cross_origin()
 def report():
    return render_template('index.html')
 
 @app.route('/data')
+@cross_origin()
 def data():
-    return redirect('https://www.sciencedirect.com/science/article/pii/S2352340920313202')
+    return redirect('https://data.mendeley.com/datasets/72ptz43s9v/1')
 
 if __name__ == '__main__':
     app.run(debug=True)
